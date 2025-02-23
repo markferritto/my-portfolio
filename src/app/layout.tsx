@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
-import { ThemeProvider } from "./components/ThemeProvider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,12 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body suppressHydrationWarning>
-        <ThemeProvider>
           <ThemeToggle />
           <Header />
           {children}
           <Footer />
-        </ThemeProvider>
       </body>
     </html>
   );
