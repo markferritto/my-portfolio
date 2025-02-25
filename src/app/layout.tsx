@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
+import Spotlight from "./components/Spotlight";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +28,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body suppressHydrationWarning>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body suppressHydrationWarning className="relative">
+        <Spotlight />
+        <div className="relative z-40">
           <ThemeToggle />
           <Header />
           {children}
           <Footer />
+        </div>
       </body>
     </html>
   );

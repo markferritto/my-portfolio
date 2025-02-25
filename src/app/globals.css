@@ -5,6 +5,8 @@
 :root {
   --foreground: #000;
   --background: #fff;
+  --x: 50%;
+  --y: 50%;
 }
 
 .dark {
@@ -30,4 +32,24 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+#spotlight {
+  opacity: 1;
+  mix-blend-mode: soft-light;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+body:hover #spotlight {
+  opacity: 1;
+}
+
+.dark #spotlight {
+  mix-blend-mode: color-dodge;
 }

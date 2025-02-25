@@ -5,18 +5,23 @@ import { throttle } from "lodash";
 
 
 const ThemeToggle: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(() => {
-    return (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) &&
-        window.matchMedia("(prefers-color-scheme: dark)").matches)
-    );
-  });
+ const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+ const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const [position, setPosition] = useState({
-    x: window.innerWidth - 100,
-    y: 100,
-  });
+ useEffect(() => {
+   // Initialize dark mode state after component mounts
+   setIsDarkMode(
+     localStorage.theme === "dark" ||
+       (!("theme" in localStorage) &&
+         window.matchMedia("(prefers-color-scheme: dark)").matches)
+   );
+
+   // Initialize position
+   setPosition({
+     x: window.innerWidth - 100,
+     y: 100,
+   });
+ }, []);
 
   useEffect(() => {
     if (isDarkMode) {
