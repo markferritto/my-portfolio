@@ -19,11 +19,11 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gray-900 text-white py-6">
       <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <div>
-            <h3 className="text-xl font-semibold mb-4">Built With</h3>
+            <h3 className="text-xl font-semibold mb-2">Built With</h3>
             <div className="flex flex-wrap gap-3">
               {technologies.map((tech) => (
                 <span
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="text-right">
-            <h3 className="text-xl font-semibold mb-4">Connect With Me</h3>
+            <h3 className="text-xl font-semibold mb-2">Connect With Me</h3>
             <div className="flex gap-4 justify-end">
               {socialLinks.map((social) => (
                 <a
@@ -60,7 +60,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-sm text-gray-400">
+        <div className="border-t border-gray-800 pt-4 text-center text-sm text-gray-400">
           <p>© {new Date().getFullYear()} Mark. All rights reserved.</p>
         </div>
       </div>

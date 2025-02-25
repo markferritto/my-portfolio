@@ -2,8 +2,8 @@ import React from "react";
 
 const Contact: React.FC = () => {
   return (
-    <section id="contact" className="min-h-screen bg-gray-800 text-white py-20">
-      <div className="max-w-3xl mx-auto px-4">
+    <section id="contact" className="min-h-screen scroll-mt-24">
+      <div className="max-w-3xl mx-auto px-4 py-12t">
         <h2 className="text-4xl font-bold text-center mb-12">Contact Me</h2>
 
         <form className="space-y-6">

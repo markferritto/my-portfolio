@@ -7,6 +7,7 @@
   --background: #fff;
   --x: 50%;
   --y: 50%;
+  --spotlight-size: 800px;
 }
 
 .dark {
@@ -52,4 +53,19 @@ body:hover #spotlight {
 
 .dark #spotlight {
   mix-blend-mode: color-dodge;
+}
+
+@media (hover: hover) {
+  #spotlight {
+    animation: spotlight-fade-in 0.5s ease;
+  }
+}
+
+@keyframes spotlight-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -5,15 +5,13 @@ import Contact from "./components/Contact";
 
 export default function Home() {
   return (
-    <div className="pt-16">
-      {" "}
-      {/* Add padding-top to account for fixed header */}
-      <section id="home" className="min-h-screen">
-        <Hero />
-      </section>
-      <About />
-      <Projects />
-      <Contact />
-    </div>
+    <main>
+      <Hero />
+      <div className="bg-gradient-to-br from-blue-200 via-indigo-100 to-purple-100 dark:from-gray-900 dark:via-blue-900 dark:to-blue-950">
+        <About />
+        <Projects />
+        <Contact />
+      </div>
+    </main>
   );
 }
