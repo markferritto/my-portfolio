@@ -25,14 +25,14 @@ const About: React.FC = () => {
           <p className="text-lg">I live in Portland, OR.</p>
 
           <p className="text-lg">
-            I craft software that solves problems and sometimes for fun.
+            I write code that solves problems and sometimes for fun.
           </p>
 
           <p className="text-lg">
             I’ve worked as a developer at a few places you’ve probably heard of,
             building e-commerce platforms, financial systems, and mobile apps. I
-            like solving problems, making things faster, and ensuring they don’t
-            break.
+            enjoy solving problems, optimizing performance, and making sure
+            things run smoothly.
           </p>
 
           <p className="text-lg">
@@ -44,8 +44,8 @@ const About: React.FC = () => {
           </p>
 
           <p className="text-lg">
-            I used to be the kind of person who would unironically say, “I liked it before it
-            was mainstream.”
+            I used to be the kind of person who would unironically say, “I liked
+            it before it was mainstream.”
           </p>
 
           <p className="text-lg">

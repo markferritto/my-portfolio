@@ -1,8 +1,11 @@
-"use client";
-
+import { HTMLAttributes } from "react";
 import Image from "next/image";
 
-const Hero: React.FC = () => {
+interface Props extends HTMLAttributes<HTMLDivElement> {
+  className?: string;
+}
+
+const Hero: React.FC<Props> = ({ className, ...props }) => {
   return (
     <div
       id="home"
@@ -23,14 +26,14 @@ const Hero: React.FC = () => {
       </div>
 
       <div className="w-1/2 flex justify-end items-end relative">
-        <div className="text-right mb-24 mr-24 z-20 mix-blend-plus-lighter">
-          <h1 className="text-7xl font-light tracking-tight mb-6 font-sans bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-900 dark:from-white dark:to-white">
+        <div className="text-right mb-24 mr-24 z-20">
+          <h1 className="text-7xl font-light tracking-tight mb-6 font-sans">
             Hi, I'm <span className="font-semibold">Mark</span>
           </h1>
-          <h2 className="text-4xl mb-8 font-thin tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-900 dark:from-white dark:to-white">
+          <h2 className="text-4xl mb-8 font-thin tracking-wide">
             Front-end Developer
           </h2>
-          <p className="text-xl mb-12 font-light leading-relaxed bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-900 dark:from-white dark:to-white">
+          <p className="text-xl mb-12 font-light leading-relaxed">
             Crafting modern web experiences with React, TypeScript, and Next.js
           </p>
           <div className="flex gap-6 justify-end">
@@ -42,8 +45,9 @@ const Hero: React.FC = () => {
             </a>
             <a
               href="/SoP.Mark.Ferritto.Resume.pdf"
-              className="px-8 py-4 bg-gray-600 text-white dark:bg-gray-500 rounded-full font-medium hover:bg-gray-700 dark:hover:bg-gray-600 transition-all duration-300 hover:shadow-lg"
               target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-4 border border-current rounded-full font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-300"
             >
               Resume
             </a>
