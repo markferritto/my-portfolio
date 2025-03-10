@@ -6,7 +6,6 @@ import Footer from "./components/Footer";
 import ThemeToggle from "./components/ThemeToggle";
 import Spotlight from "./components/Spotlight";
 
-
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -31,8 +30,11 @@ export default function RootLayout({
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body suppressHydrationWarning className="relative">
         <Spotlight />
-        <div className="relative z-40">
+        <div className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[60]">
+          {/* Increased z-index to show above header */}
           <ThemeToggle />
+        </div>
+        <div className="relative z-40">
           <Header />
           {children}
           <Footer />

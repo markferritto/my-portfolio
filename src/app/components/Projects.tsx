@@ -28,18 +28,17 @@ const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="min-h-screen scroll-mt-24">
-      <div className="max-w-6xl mx-auto px-4 py-12">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+      <div className="max-w-6xl mx-auto px-4 py-8 sm:py-12">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-12 text-gray-800 dark:text-white">
           Featured Projects
         </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {projects.map((project) => (
             <div
               key={project.title}
               className="bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="relative h-48 w-full">
+              <div className="relative h-40 sm:h-48 w-full">
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -47,8 +46,8 @@ const Projects: React.FC = () => {
                   className="object-cover rounded-t-xl"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-white">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-gray-800 dark:text-white">
                   {project.title}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">

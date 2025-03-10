@@ -41,7 +41,7 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ onReset }) => {
     <motion.div
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="relative text-center p-6 bg-green-100 dark:bg-green-900 rounded-lg"
+      className="relative text-center p-4 sm:p-6 bg-green-100 dark:bg-green-900 rounded-lg"
     >
       <div className="fixed top-0 left-0 w-full h-full pointer-events-none">
         <ReactConfetti
@@ -78,18 +78,15 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ onReset }) => {
       >
         ✨
       </motion.div>
-      <h3 className="text-green-700 dark:text-green-200 font-semibold">
+      <h3 className="text-xl sm:text-2xl text-green-700 dark:text-green-200 font-semibold">
         Message Sent!
       </h3>
-      <p className="text-green-600 dark:text-green-300">
+      <p className="text-base sm:text-lg text-green-600 dark:text-green-300">
         I'll get back to you soon.
       </p>
       <motion.button
-        onClick={(e) => {
-          e.preventDefault();
-          onReset();
-        }}
-        className="mt-4 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
+        onClick={onReset}
+        className="mt-4 px-4 sm:px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
@@ -148,7 +145,7 @@ const Contact: React.FC = () => {
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
         process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
         e.currentTarget,
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       );
 
       setFormStatus("success");
@@ -194,304 +191,168 @@ const Contact: React.FC = () => {
     setFormErrors({});
     setErrorMessage("");
   };
-    return (
-      <section id="contact" className="min-h-screen bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900/50">
-        <div className="max-w-4xl mx-auto px-4 py-16">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Get In Touch</h2>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Have a question or want to work together? Feel free to reach out.
-            </p>
-          </div>
 
+  return (
+    <section id="contact" className="min-h-screen scroll-mt-24">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="text-center mb-8 sm:mb-16">
+          <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
+            Get In Touch
+          </h2>
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            Have a question or want to work together? Feel free to reach out.
+          </p>
+        </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8">
-            <AnimatePresence mode="wait">
-              {formStatus === "success" ? (
-                <SuccessMessage onReset={handleReset} />
-              ) : (
-                <motion.form
-                  className="space-y-8"
-                  onSubmit={handleSubmit}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                >
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="name"
-                        className="block text-sm font-medium mb-2"
-                      >
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                        placeholder="Your name"
-                        required
-                      />
-                      <AnimatePresence>
-                        {formErrors.name && (
-                          <motion.p
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="text-red-500 text-sm mt-1"
-                          >
-                            {formErrors.name}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-medium mb-2"
-                      >
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 bg-gray-700 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                        placeholder="your@email.com"
-                        required
-                      />
-                      <AnimatePresence>
-                        {formErrors.email && (
-                          <motion.p
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -10 }}
-                            className="text-red-500 text-sm mt-1"
-                          >
-                            {formErrors.email}
-                          </motion.p>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  </div>
-                
+        <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-4 sm:p-8">
+          <AnimatePresence mode="wait">
+            {formStatus === "success" ? (
+              <SuccessMessage onReset={handleReset} />
+            ) : (
+              <motion.form
+                className="space-y-6 sm:space-y-8"
+                onSubmit={handleSubmit}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                   <div>
                     <label
-                      htmlFor="message"
-                      className="block text-sm font-medium mb-2"
+                      htmlFor="name"
+                      className="block text-sm font-medium mb-1 sm:mb-2"
                     >
-
-
-
-
-
-                      Message
+                      Name
                     </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
                       onChange={handleInputChange}
-                      rows={6}
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white resize-none"
-                      placeholder="Your message..."
+                      className="w-full px-3 sm:px-4 py-2 sm:py-3 bg-gray-700 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                      placeholder="Your name"
                       required
                     />
                     <AnimatePresence>
-                      {formErrors.message && (
+                      {formErrors.name && (
                         <motion.p
                           initial={{ opacity: 0, y: -10 }}
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: -10 }}
                           className="text-red-500 text-sm mt-1"
                         >
-                          {formErrors.message}
+                          {formErrors.name}
                         </motion.p>
                       )}
                     </AnimatePresence>
                   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  {errorMessage && (
-                    <motion.div
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-
-                      className="p-4 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-200 rounded-lg"
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="block text-sm font-medium mb-2"
                     >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-3 bg-gray-700 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
+                      placeholder="your@email.com"
+                      required
+                    />
+                    <AnimatePresence>
+                      {formErrors.email && (
+                        <motion.p
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          className="text-red-500 text-sm mt-1"
+                        >
+                          {formErrors.email}
+                        </motion.p>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
 
-
-                      {errorMessage}
-                    </motion.div>
-                  )}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <motion.button
-                    type="submit"
-                    disabled={formStatus === "sending"}
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 px-8 rounded-lg font-medium transition-colors duration-300"
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
                   >
-                    {formStatus === "sending" ? (
-                      <span className="flex items-center justify-center">
-                        <motion.div
-                          className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
-                          animate={{ rotate: 360 }}
-                          transition={{
-                            duration: 1,
-                            repeat: Infinity,
-                            ease: "linear",
-                          }}
-                        />
-                        <span className="ml-2">Sending...</span>
-                      </span>
-                    ) : (
-                      "Send Message"
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    rows={6}
+                    className="w-full px-4 py-3 bg-gray-700 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white resize-none"
+                    placeholder="Your message..."
+                    required
+                    suppressHydrationWarning
+                  />
+                  <AnimatePresence>
+                    {formErrors.message && (
+                      <motion.p
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="text-red-500 text-sm mt-1"
+                      >
+                        {formErrors.message}
+                      </motion.p>
                     )}
-                  </motion.button>
-                </motion.form>
-              )}
+                  </AnimatePresence>
+                </div>
 
+                {errorMessage && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="p-4 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-200 rounded-lg"
+                  >
+                    {errorMessage}
+                  </motion.div>
+                )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            </AnimatePresence>
-          </div>
+                <motion.button
+                  type="submit"
+                  disabled={formStatus === "sending"}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 sm:py-4 px-6 sm:px-8 rounded-lg font-medium transition-colors duration-300"
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.99 }}
+                >
+                  {formStatus === "sending" ? (
+                    <span className="flex items-center justify-center">
+                      <motion.div
+                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                        animate={{ rotate: 360 }}
+                        transition={{
+                          duration: 1,
+                          repeat: Infinity,
+                          ease: "linear",
+                        }}
+                      />
+                      <span className="ml-2">Sending...</span>
+                    </span>
+                  ) : (
+                    "Send Message"
+                  )}
+                </motion.button>
+              </motion.form>
+            )}
+          </AnimatePresence>
         </div>
-      </section>
-    );
-  };
+      </div>
+    </section>
+  );
+};
 
 export default Contact;

@@ -19,16 +19,18 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white py-6">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+    <footer className="bg-gray-900 text-white py-8 sm:py-12">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 mb-6 sm:mb-8">
           <div>
-            <h3 className="text-xl font-semibold mb-2">Built With</h3>
-            <div className="flex flex-wrap gap-3">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+              Built With
+            </h3>
+            <div className="flex flex-wrap gap-2 sm:gap-3">
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-4 py-2 bg-gray-800 rounded-full text-sm"
+                  className="px-3 sm:px-4 py-1.5 sm:py-2 bg-gray-800 rounded-full text-sm"
                 >
                   {tech}
                 </span>
@@ -36,9 +38,11 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          <div className="text-right">
-            <h3 className="text-xl font-semibold mb-2">Connect With Me</h3>
-            <div className="flex gap-4 justify-end">
+          <div className="text-left sm:text-right">
+            <h3 className="text-lg sm:text-xl font-semibold mb-3 sm:mb-4">
+              Connect With Me
+            </h3>
+            <div className="flex gap-4 justify-start sm:justify-end">
               {socialLinks.map((social) => (
                 <a
                   key={social.name}

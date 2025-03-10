@@ -1,27 +1,17 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { throttle } from "lodash";
-
 
 const ThemeToggle: React.FC = () => {
- const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
- const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
 
- useEffect(() => {
-   // Initialize dark mode state after component mounts
-   setIsDarkMode(
-     localStorage.theme === "dark" ||
-       (!("theme" in localStorage) &&
-         window.matchMedia("(prefers-color-scheme: dark)").matches)
-   );
-
-   // Initialize position
-   setPosition({
-     x: window.innerWidth - 100,
-     y: 100,
-   });
- }, []);
+  useEffect(() => {
+    setIsDarkMode(
+      localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+    );
+  }, []);
 
   useEffect(() => {
     if (isDarkMode) {
@@ -33,38 +23,17 @@ const ThemeToggle: React.FC = () => {
     }
   }, [isDarkMode]);
 
-  const handleDragStart = (e: React.DragEvent) => {
-    const img = new Image();
-    e.dataTransfer.setDragImage(img, 0, 0);
-  };
-
-  const handleDrag = throttle((e: React.DragEvent) => {
-    if (e.clientX && e.clientY) {
-      setPosition({
-        x: e.clientX,
-        y: e.clientY,
-      });
-    }
-  }, 16);
-
   return (
     <button
-      style={{
-        position: "fixed",
-        transform: `translate(${position.x}px, ${position.y}px)`,
-      }}
-      draggable="true"
-      onDragStart={handleDragStart}
-      onDrag={handleDrag}
       onClick={() => setIsDarkMode((prev) => !prev)}
-      className="cursor-move z-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
+      className="cursor-pointer z-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
       aria-label="Toggle Dark Mode"
       aria-pressed={isDarkMode}
     >
-      <div className="relative w-14 h-8 rounded-full p-1 bg-gray-300 dark:bg-gray-700 transition-colors duration-300">
+      <div className="relative w-12 h-6 sm:w-14 sm:h-8 rounded-full p-1 bg-gray-300 dark:bg-gray-700 transition-colors duration-300">
         <div
-          className={`absolute w-6 h-6 rounded-full bg-white dark:bg-gray-900 shadow-md transform transition-transform duration-300 ${
-            isDarkMode ? "translate-x-6" : "translate-x-0"
+          className={`absolute w-4 h-4 sm:w-6 sm:h-6 rounded-full bg-white dark:bg-gray-900 shadow-md transform transition-transform duration-300 ${
+            isDarkMode ? "translate-x-6 sm:translate-x-6" : "translate-x-0"
           }`}
         />
       </div>
