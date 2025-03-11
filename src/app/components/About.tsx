@@ -29,18 +29,18 @@ const About: React.FC = () => {
           </p>
 
           <p className="text-base sm:text-lg">
-            I’ve worked as a developer at a few places you’ve probably heard of,
-            building e-commerce platforms, financial systems, and mobile apps. I
-            enjoy solving problems, optimizing performance, and making sure
-            things run smoothly.
+            I&apos;ve worked as a developer at a few places you&apos;ve probably
+            heard of, building e-commerce platforms, financial systems, and
+            mobile apps. I enjoy solving problems, optimizing performance, and
+            making sure things run smoothly.
           </p>
 
           <p className="text-base sm:text-lg">
-            I'm AWS Certified (Developer and Cloud Practitioner), and I
-            graduated from Tech Elevator's coding boot camp, where I learned
-            Java, TDD, and agile methodologies. Before that, I studied Earth
-            Sciences at The Ohio State University, because I used to think rocks
-            were cool. (They still are, but now I think code is cooler.)
+            I&apos;m AWS Certified (Developer and Cloud Practitioner), and I
+            graduated from Tech Elevator&apos;s coding boot camp, where I
+            learned Java, TDD, and agile methodologies. Before that, I studied
+            Earth Sciences at The Ohio State University, because I used to think
+            rocks were cool. (They still are, but now I think code is cooler.)
           </p>
 
           <p className="text-base sm:text-lg">
