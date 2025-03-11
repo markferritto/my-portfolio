@@ -82,7 +82,7 @@ const SuccessMessage: React.FC<SuccessMessageProps> = ({ onReset }) => {
         Message Sent!
       </h3>
       <p className="text-base sm:text-lg text-green-600 dark:text-green-300">
-        I'll get back to you soon.
+        I&apos;ll get back to you soon.
       </p>
       <motion.button
         onClick={onReset}

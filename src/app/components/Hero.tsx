@@ -5,7 +5,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   className?: string;
 }
 
-const Hero: React.FC<Props> = ({ className, ...props }) => {
+const Hero: React.FC<Props> = () => {
   return (
     <div
       id="home"
@@ -29,7 +29,7 @@ const Hero: React.FC<Props> = ({ className, ...props }) => {
       <div className="w-full lg:w-1/2 flex items-center lg:items-end justify-center lg:justify-end h-[40vh] md:h-[40vh] lg:h-screen">
         <div className="text-center lg:text-right max-w-xl lg:mr-24 lg:mb-36">
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-light tracking-tight mb-4 lg:mb-6">
-            Hi, I'm <span className="font-semibold">Mark</span>
+            Hi, I&apos;m <span className="font-semibold">Mark</span>
           </h1>
           <h2 className="text-2xl sm:text-3xl lg:text-4xl mb-6 lg:mb-8 font-thin tracking-wide">
             Front-end Developer
